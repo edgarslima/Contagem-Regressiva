@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace Contagem_Regressiva
 {
 
- 
+
 
     public partial class frmScreen : Form
     {
@@ -198,8 +198,8 @@ namespace Contagem_Regressiva
             Font objFonte = fontNumero;
             laTimer.Font = objFonte;
 
-            int alturaTotal = ScreenProperties.getCurrentScreenHeight();
-            int larguraTotal = ScreenProperties.getCurrentScreenWidth();
+            int alturaTotal = this.Height;  // ScreenProperties.getCurrentScreenHeight();
+            int larguraTotal = this.Width; // ScreenProperties.getCurrentScreenWidth();
 
             int alturaLabelTimer = laTimer.Height;
             int larguraLabelTimer = laTimer.Width;
@@ -224,14 +224,14 @@ namespace Contagem_Regressiva
 
             laTitulo.Parent = pbImagemFundo;
             laTitulo.BackColor = Color.Transparent;
-            laTitulo.Location = new Point(larguraTotal - laTitulo.Width, 80);
+            laTitulo.Location = new Point(larguraTotal - laTitulo.Width - 30, 80);
             laTitulo.Text = strTitulo;
             laTitulo.Font = fontTitulo;
 
 
             laSubtitulo.Parent = pbImagemFundo;
             laSubtitulo.BackColor = Color.Transparent;
-            laSubtitulo.Location = new Point(larguraTotal - laSubtitulo.Width, laTitulo.Height + 90);
+            laSubtitulo.Location = new Point(larguraTotal - laSubtitulo.Width - 30, laTitulo.Height + 90);
             laSubtitulo.Text = strSubtitulo;
             laSubtitulo.Font = new Font(fontTitulo.FontFamily, (int)Math.Round(fontTitulo.Size * 0.69, 0), fontTitulo.Style);
 
@@ -256,7 +256,7 @@ namespace Contagem_Regressiva
         {
 
             DateTime dt = new DateTime();
-            if (tempoTotal >=0)
+            if (tempoTotal >= 0)
             {
                 dt = dt.AddSeconds(tempoTotal);
                 string hora = dt.ToString("mm:ss");
@@ -279,6 +279,13 @@ namespace Contagem_Regressiva
                 }
             }
             tempoTotal--;
+            MontaTela();
+
+        }
+
+        private void frmScreen_ResizeEnd(object sender, EventArgs e)
+        {
+            MontaTela();
 
         }
     }
