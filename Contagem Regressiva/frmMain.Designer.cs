@@ -68,6 +68,7 @@
             this.openDialogImagem = new System.Windows.Forms.OpenFileDialog();
             this.btnPreview = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.laErro = new System.Windows.Forms.Label();
             this.grpConfiguracoes.SuspendLayout();
             this.panelCorLetra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numTempo)).BeginInit();
@@ -75,6 +76,7 @@
             // 
             // grpConfiguracoes
             // 
+            this.grpConfiguracoes.Controls.Add(this.laErro);
             this.grpConfiguracoes.Controls.Add(this.btnFonteTitulo);
             this.grpConfiguracoes.Controls.Add(this.tbFonteTitulo);
             this.grpConfiguracoes.Controls.Add(this.laFonteTitulo);
@@ -451,6 +453,14 @@
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
+            // laErro
+            // 
+            this.laErro.ForeColor = System.Drawing.Color.Red;
+            this.laErro.Location = new System.Drawing.Point(98, 329);
+            this.laErro.Name = "laErro";
+            this.laErro.Size = new System.Drawing.Size(406, 42);
+            this.laErro.TabIndex = 27;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -520,6 +530,7 @@
         private System.Windows.Forms.TextBox tbFonteTitulo;
         private System.Windows.Forms.Label laFonteTitulo;
         private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.Label laErro;
     }
 }
 
